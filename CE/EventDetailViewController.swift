@@ -51,10 +51,10 @@ class EventDetailViewController: UIViewController, MKMapViewDelegate, UIWebViewD
   
   override func viewWillAppear(animated: Bool) {
     //analytics
-    var tracker = GAI.sharedInstance().defaultTracker
+    let tracker = GAI.sharedInstance().defaultTracker
     tracker.set(kGAIScreenName, value: "EventsDetailActivity")
     
-    var builder = GAIDictionaryBuilder.createScreenView()
+    let builder = GAIDictionaryBuilder.createScreenView()
     tracker.send(builder.build() as [NSObject : AnyObject])
   }
   
@@ -119,7 +119,7 @@ class EventDetailViewController: UIViewController, MKMapViewDelegate, UIWebViewD
     for category in event.categories {
       categoriesAsArray.append(category.name)
     }
-    self.eventCategorieLabel.text = ",".join(categoriesAsArray)
+    self.eventCategorieLabel.text = categoriesAsArray.joinWithSeparator(",")
   }
   
   func initDescription() {
@@ -140,7 +140,7 @@ class EventDetailViewController: UIViewController, MKMapViewDelegate, UIWebViewD
   func initMapView() {
     //map
     if event.location.geo != nil {
-      var mapViewPin = MKPointAnnotation()
+      let mapViewPin = MKPointAnnotation()
       mapViewPin.coordinate = CLLocationCoordinate2D(latitude: event.location.geo.longitude, longitude: event.location.geo.latitude)
       mapViewPin.title = event.location.name
       
@@ -151,8 +151,8 @@ class EventDetailViewController: UIViewController, MKMapViewDelegate, UIWebViewD
       self.mapView.addAnnotation(mapViewPin)
       self.mapView.selectAnnotation(mapViewPin, animated: true)
       
-      var span = MKCoordinateSpanMake(0.5, 0.5)
-      var region = MKCoordinateRegion(center: mapViewPin.coordinate, span: span)
+      let span = MKCoordinateSpanMake(0.5, 0.5)
+      let region = MKCoordinateRegion(center: mapViewPin.coordinate, span: span)
       self.mapView.setRegion(region, animated: true)
     } else {
       //do smt
@@ -162,9 +162,9 @@ class EventDetailViewController: UIViewController, MKMapViewDelegate, UIWebViewD
   // MARK:- Sharing
   @IBAction func actionButtonAction(sender: AnyObject) {
     var sharingItems = [AnyObject]()
-    var sharingText = self.event.name
-    var sharingImage = self.eventImageView.image
-    var sharingURL = NSURL(string: self.event.url)
+    let sharingText = self.event.name
+    let sharingImage = self.eventImageView.image
+    let sharingURL = NSURL(string: self.event.url)
     var sharingStartdate = self.event.startDate
     
     if let text = sharingText {
@@ -183,7 +183,7 @@ class EventDetailViewController: UIViewController, MKMapViewDelegate, UIWebViewD
   
   // MARK:- Map Delegate
   
-  func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+  func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView! {
     if (annotation is MKUserLocation) {
       return nil
     }
@@ -194,31 +194,31 @@ class EventDetailViewController: UIViewController, MKMapViewDelegate, UIWebViewD
     var anView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId)
     if anView == nil {
       anView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
-      anView.canShowCallout = true
-      anView.image = UIImage(named: "marker")
-      anView.calloutOffset = CGPoint(x: -1.0, y: -3.0)
+      anView!.canShowCallout = true
+      anView!.image = UIImage(named: "marker")
+      anView!.calloutOffset = CGPoint(x: -1.0, y: -3.0)
       
-      let navigationButton = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
+      let navigationButton = UIButton(type: UIButtonType.Custom)
       navigationButton.frame.size.width = 52
       navigationButton.frame.size.height = 52
       navigationButton.backgroundColor = UIColor.blueColor()
       navigationButton.setImage(UIImage(named: "car"), forState: .Normal)
       navigationButton.addTarget(self, action: "startNavigation:", forControlEvents: UIControlEvents.TouchUpInside)
       
-      anView.leftCalloutAccessoryView = navigationButton
+      anView!.leftCalloutAccessoryView = navigationButton
     }
     else {  
       //we are re-using a view, update its annotation reference...
-      anView.annotation = annotation
+      anView!.annotation = annotation
     }
     
     return anView
   }
   
   func startNavigation(sender:UIButton!) {
-    var placemark = MKPlacemark(coordinate: venue.coordinate, addressDictionary: nil)
-    var mapItem = MKMapItem(placemark: placemark)
-    mapItem.name = self.venue.title
+    let placemark = MKPlacemark(coordinate: venue.coordinate, addressDictionary: nil)
+    let mapItem = MKMapItem(placemark: placemark)
+    mapItem.name = self.venue.title!
     mapItem.openInMapsWithLaunchOptions(nil)
   }
 }

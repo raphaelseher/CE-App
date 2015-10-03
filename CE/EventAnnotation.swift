@@ -19,7 +19,7 @@ import UIKit
 import MapKit
 
 class EventAnnotation: NSObject, MKAnnotation {
-  let title: String
+  let title: String?
   let locationName: String
   let coordinate: CLLocationCoordinate2D
   let event : Event
@@ -33,7 +33,7 @@ class EventAnnotation: NSObject, MKAnnotation {
     super.init()
   }
   
-  var subtitle: String {
+  var subtitle: String? {
     return locationName
   }
 }

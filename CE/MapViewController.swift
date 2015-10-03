@@ -43,10 +43,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
   
   override func viewWillAppear(animated: Bool) {
     //analytics
-    var tracker = GAI.sharedInstance().defaultTracker
+    let tracker = GAI.sharedInstance().defaultTracker
     tracker.set(kGAIScreenName, value: "MapActivity")
     
-    var builder = GAIDictionaryBuilder.createScreenView()
+    let builder = GAIDictionaryBuilder.createScreenView()
     tracker.send(builder.build() as [NSObject : AnyObject])
   }
   
@@ -72,9 +72,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
   }
   
   func downloadEvents() {
-    var lat : Double = userLocation.coordinate.latitude
-    var lon : Double = userLocation.coordinate.longitude
-    var distance : Int32 = 1000
+    let lat : Double = userLocation.coordinate.latitude
+    let lon : Double = userLocation.coordinate.longitude
+    let distance : Int32 = 1000
     
     MBProgressHUD.showHUDAddedTo(self.view, animated: true)
     EventApi.sharedInstance().eventsFromPage(0, andPageSize: 100, withLat: lat, andLon: lon, andDistance: distance) { (events, links) -> Void in
@@ -87,23 +87,23 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
   
   func zoomToUser() {
     let mapCenter = self.userLocation.coordinate
-    var mapCamera = MKMapCamera(lookingAtCenterCoordinate: mapCenter, fromEyeCoordinate: mapCenter, eyeAltitude: 50000)
+    let mapCamera = MKMapCamera(lookingAtCenterCoordinate: mapCenter, fromEyeCoordinate: mapCenter, eyeAltitude: 50000)
     mapView.setCamera(mapCamera, animated: true)
   }
   
   // MARK: - Location Manager
   
-  func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+  func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
     if status == CLAuthorizationStatus.AuthorizedWhenInUse {
       manager.startUpdatingLocation()
     }
   }
   
-  func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+  func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     manager.stopUpdatingLocation()
-    println("LocationUpdate")
-    println(locations)
-    self.userLocation = locations.last as! CLLocation
+    print("LocationUpdate")
+    print(locations)
+    self.userLocation = locations.last as CLLocation!
     self.zoomToUser()
     self.downloadEvents()
   }
@@ -122,7 +122,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
   
   // MARK: - Map Delegate
   
-  func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+  func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
     if (annotation is MKUserLocation) {
       return nil
     }
@@ -132,20 +132,20 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var anView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId)
     if anView == nil {
       anView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
-      anView.canShowCallout = true
-      anView.image = UIImage(named: "marker")
-      anView.calloutOffset = CGPoint(x: -1.0, y: -3.0)
-      anView.rightCalloutAccessoryView = UIButton.buttonWithType(UIButtonType.DetailDisclosure) as! UIView
+      anView!.canShowCallout = true
+      anView!.image = UIImage(named: "marker")
+      anView!.calloutOffset = CGPoint(x: -1.0, y: -3.0)
+      anView!.rightCalloutAccessoryView = UIButton(type: UIButtonType.DetailDisclosure) as UIView
     }
     else {
       //we are re-using a view, update its annotation reference...
-      anView.annotation = annotation
+      anView!.annotation = annotation
     }
     
     return anView
   }
   
-  func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!, calloutAccessoryControlTapped control: UIControl!) {
+  func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
     let eventAnnotation = view.annotation as! EventAnnotation
     self.savedEvent = eventAnnotation.event
     performSegueWithIdentifier("showEventDetail", sender: self)

@@ -46,10 +46,10 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
   
   override func viewWillAppear(animated: Bool) {
     //analytics
-    var tracker = GAI.sharedInstance().defaultTracker
+    let tracker = GAI.sharedInstance().defaultTracker
     tracker.set(kGAIScreenName, value: "MainActivity")
     
-    var builder = GAIDictionaryBuilder.createScreenView()
+    let builder = GAIDictionaryBuilder.createScreenView()
     tracker.send(builder.build() as [NSObject : AnyObject])
   }
   
@@ -64,7 +64,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     self.tableView.delegate = self
     self.tableView.dataSource = self
     
-    var nib = UINib(nibName: "EventTableViewCell", bundle: nil)
+    let nib = UINib(nibName: "EventTableViewCell", bundle: nil)
     tableView.registerNib(nib, forCellReuseIdentifier: "EventTableViewCell")
   }
   
@@ -73,7 +73,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     EventApi.sharedInstance().eventsFromPage(page, andPageSize: pageSize, fromDate: todayString, toDate: todayString) { (events, links) -> Void in
       self.link = links
       
-      println("Links: \(links.next), \(links.first), \(links.last)");
+      print("Links: \(links.next), \(links.first), \(links.last)");
       
       self.eventsToDisplay = self.checkForToday(events)
       self.tableView.reloadData()
@@ -90,7 +90,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    var cell:EventTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("EventTableViewCell") as! EventTableViewCell
+    let cell:EventTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("EventTableViewCell") as! EventTableViewCell
     
     //reset cell
     cell.eventStartDate.hidden = false
@@ -122,7 +122,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
   func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
     if (indexPath.row == (self.eventsToDisplay.count - 3)) {
       if self.link.next == nil {
-        println("No more events")
+        print("No more events")
         return
       }
       
@@ -154,7 +154,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
   func checkForToday(events: [AnyObject]) -> [AnyObject] {
     let todayString = dayMonthYearDateFormatter.stringFromDate(NSDate())
     var todayArray : [AnyObject] = []
-    var otherEventsArray : NSMutableArray = []
+    let otherEventsArray : NSMutableArray = []
     
     for event : AnyObject in events {
       let eventDate = dayMonthYearDateFormatter.stringFromDate(event.startDate)
@@ -190,7 +190,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "showEventDetail" {
       if let destination = segue.destinationViewController as? EventDetailViewController {
-        if let blogIndex = tableView.indexPathForSelectedRow()?.row {
+        if let blogIndex = tableView.indexPathForSelectedRow?.row {
           destination.event = self.eventsToDisplay[blogIndex] as! Event
         }
       }

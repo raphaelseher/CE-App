@@ -35,10 +35,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     tabBarController = self.window!.rootViewController as! UITabBarController
     tabBar = tabBarController.tabBar
 
-    tabBarItem1 = tabBar.items![0] as! UITabBarItem
-    tabBarItem2 = tabBar.items![1] as! UITabBarItem
-    tabBarItem3 = tabBar.items![2] as! UITabBarItem
-    tabBarItem4 = tabBar.items![3] as! UITabBarItem
+    tabBarItem1 = tabBar.items![0] 
+    tabBarItem2 = tabBar.items![1] 
+    tabBarItem3 = tabBar.items![2] 
+    tabBarItem4 = tabBar.items![3] 
     
     tabBarItem1.selectedImage = UIImage(named: "home_filled")
     tabBarItem2.selectedImage = UIImage(named: "search_filled")
@@ -60,7 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     assert(configureError == nil, "Error configuring Google services: \(configureError)")
     
     // Optional: configure GAI options.
-    var gai = GAI.sharedInstance()
+    let gai = GAI.sharedInstance()
     gai.trackUncaughtExceptions = true  // report uncaught exceptions
   }
 

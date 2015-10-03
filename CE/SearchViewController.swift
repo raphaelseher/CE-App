@@ -78,7 +78,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     self.manager.distanceFilter = 500
     
     //init tableview
-    var nib = UINib(nibName: "EventTableViewCell", bundle: nil)
+    let nib = UINib(nibName: "EventTableViewCell", bundle: nil)
     self.eventTableView.registerNib(nib, forCellReuseIdentifier: "EventTableViewCell")
     self.eventTableView.rowHeight = 320
     
@@ -95,7 +95,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
       self.categories = categ
       
       //"Alle Kategorien" added
-      var allCategory = Categories()
+      let allCategory = Categories()
       allCategory.name = "Alle Kategorien"
       allCategory.id = nil
       self.categories.insert(allCategory, atIndex: 0)
@@ -111,10 +111,10 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     self.navigationController?.setNavigationBarHidden(true, animated: false)
     
     //analytics
-    var tracker = GAI.sharedInstance().defaultTracker
+    let tracker = GAI.sharedInstance().defaultTracker
     tracker.set(kGAIScreenName, value: "SearchActivity")
     
-    var builder = GAIDictionaryBuilder.createScreenView()
+    let builder = GAIDictionaryBuilder.createScreenView()
     tracker.send(builder.build() as [NSObject : AnyObject])
   }
   
@@ -141,16 +141,16 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     }
   }
   
-  func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+  func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
     if status == CLAuthorizationStatus.AuthorizedWhenInUse {
       manager.startUpdatingLocation()
     }
   }
   
-  func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-    println("LocationUpdate")
-    println(locations)
-    self.userLocation = locations.last as! CLLocation
+  func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    print("LocationUpdate")
+    print(locations)
+    self.userLocation = locations.last as CLLocation!
   }
   
   // MARK: - Search Button
@@ -188,7 +188,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     if self.nearYouSwitch.on {
       lat = self.userLocation.coordinate.latitude
       lon = self.userLocation.coordinate.longitude
-      distance = (self.nearYouDistance.text as NSString).intValue
+      distance = (self.nearYouDistance.text as NSString!).intValue
     }
     
     //do search
@@ -373,7 +373,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    var cell:EventTableViewCell = self.eventTableView.dequeueReusableCellWithIdentifier("EventTableViewCell") as! EventTableViewCell
+    let cell:EventTableViewCell = self.eventTableView.dequeueReusableCellWithIdentifier("EventTableViewCell") as! EventTableViewCell
     
     //reset cell
     cell.eventStartDate.hidden = false
@@ -413,7 +413,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "showEventDetail" {
       if let destination = segue.destinationViewController as? EventDetailViewController {
-        if let blogIndex = self.eventTableView.indexPathForSelectedRow()?.row {
+        if let blogIndex = self.eventTableView.indexPathForSelectedRow?.row {
           destination.event = self.eventsToDisplay[blogIndex] as! Event
         }
       }
