@@ -124,7 +124,7 @@ class EventDetailViewController: UIViewController, MKMapViewDelegate, UIWebViewD
   
   func initDescription() {
     //description
-    var htmlString = "<style>html {font-family: 'Helvetica', 'Arial', sans-serif; font-size:12pt;} body {margin: 0; padding: 0;} </style>"
+    var htmlString = "<style>html {font-family: -apple-system, 'Helvetica', 'Arial', sans-serif; font-size:12pt;} body {margin: 0; padding: 0;} </style>"
     htmlString += event.eventDescription
     self.eventDescriptionWebView.loadHTMLString(htmlString, baseURL: nil)
     
@@ -165,7 +165,6 @@ class EventDetailViewController: UIViewController, MKMapViewDelegate, UIWebViewD
     let sharingText = self.event.name
     let sharingImage = self.eventImageView.image
     let sharingURL = NSURL(string: self.event.url)
-    var sharingStartdate = self.event.startDate
     
     if let text = sharingText {
       sharingItems.append(text)
