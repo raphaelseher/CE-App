@@ -30,7 +30,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var tabBarItem1 : UITabBarItem
     var tabBarItem2 : UITabBarItem
     var tabBarItem3 : UITabBarItem
-    var tabBarItem4 : UITabBarItem
     
     tabBarController = self.window!.rootViewController as! UITabBarController
     tabBar = tabBarController.tabBar
@@ -38,12 +37,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     tabBarItem1 = tabBar.items![0] 
     tabBarItem2 = tabBar.items![1] 
     tabBarItem3 = tabBar.items![2] 
-    tabBarItem4 = tabBar.items![3] 
     
     tabBarItem1.selectedImage = UIImage(named: "home_filled")
     tabBarItem2.selectedImage = UIImage(named: "search_filled")
     tabBarItem3.selectedImage = UIImage(named: "map_filled")
-    tabBarItem4.selectedImage = UIImage(named: "info_filled")
     
     UITabBar.appearance().tintColor = UIColor(red:0.11, green:0.38, blue:0.48, alpha:1.0)
     
