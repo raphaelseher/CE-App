@@ -35,6 +35,7 @@ class EventDetailViewController: UIViewController, MKMapViewDelegate, UIWebViewD
   @IBOutlet weak var toLabel: UILabel!
   @IBOutlet weak var fromLabel: UILabel!
   @IBOutlet weak var eventDescriptionWebViewHeightConstraint: NSLayoutConstraint!
+  @IBOutlet weak var mapViewHeightLayoutConstraint: NSLayoutConstraint!
   
   var event : Event = Event()
   var venue : MKAnnotation!
@@ -137,6 +138,15 @@ class EventDetailViewController: UIViewController, MKMapViewDelegate, UIWebViewD
     self.view.layoutIfNeeded()
   }
   
+  //open links from webView in Safari
+  func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+    if navigationType == UIWebViewNavigationType.LinkClicked {
+      UIApplication.sharedApplication().openURL(request.URL!)
+      return false
+    }
+    return true
+  }
+  
   func initMapView() {
     //map
     if event.location.geo != nil {
@@ -155,7 +165,8 @@ class EventDetailViewController: UIViewController, MKMapViewDelegate, UIWebViewD
       let region = MKCoordinateRegion(center: mapViewPin.coordinate, span: span)
       self.mapView.setRegion(region, animated: true)
     } else {
-      //do smt
+      self.mapViewHeightLayoutConstraint.constant = 0;
+      self.mapView.needsUpdateConstraints()
     }
   }
   

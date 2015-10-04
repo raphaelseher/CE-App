@@ -235,16 +235,6 @@
                                                     </mask>
                                                 </variation>
                                             </view>
-                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dKG-wG-Vzl">
-                                                <rect key="frame" x="0.0" y="461" width="600" height="260"/>
-                                                <animations/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="260" id="DEX-JJ-GmL"/>
-                                                </constraints>
-                                                <connections>
-                                                    <outlet property="delegate" destination="15C-Zr-dtx" id="Bto-Yx-0rR"/>
-                                                </connections>
-                                            </mapView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beschreibung" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t5x-Tu-PGL">
                                                 <rect key="frame" x="8" y="729" width="584" height="21"/>
                                                 <animations/>
@@ -261,6 +251,16 @@
                                                 </constraints>
                                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
                                             </webView>
+                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dKG-wG-Vzl">
+                                                <rect key="frame" x="0.0" y="461" width="600" height="260"/>
+                                                <animations/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="260" id="DEX-JJ-GmL"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="delegate" destination="15C-Zr-dtx" id="Bto-Yx-0rR"/>
+                                                </connections>
+                                            </mapView>
                                         </subviews>
                                         <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -340,6 +340,7 @@
                         <outlet property="eventTitleLabel" destination="3uJ-em-TKh" id="tou-jf-Cek"/>
                         <outlet property="fromLabel" destination="ewt-34-7rr" id="PSO-kA-R18"/>
                         <outlet property="mapView" destination="dKG-wG-Vzl" id="4Ys-5A-dri"/>
+                        <outlet property="mapViewHeightLayoutConstraint" destination="DEX-JJ-GmL" id="sbJ-AF-aSj"/>
                         <outlet property="startDateLabel" destination="iF4-WL-Lzq" id="UmJ-zx-gjK"/>
                         <outlet property="startTimeLabel" destination="J7U-QZ-iC6" id="QtG-k3-y6C"/>
                         <outlet property="toLabel" destination="KCO-cU-LMW" id="zhr-ih-kHH"/>
