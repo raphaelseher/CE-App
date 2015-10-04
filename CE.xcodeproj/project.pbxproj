@@ -23,7 +23,6 @@
 		88D125F51B5924FF007DC224 /* Links.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D125EF1B5924FF007DC224 /* Links.m */; };
 		88D126041B592DAE007DC224 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D126021B592DAE007DC224 /* EventTableViewCell.swift */; };
 		88D126051B592DAE007DC224 /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88D126031B592DAE007DC224 /* EventTableViewCell.xib */; };
-		88FFB8AA1B80BAA300961E31 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FFB8A91B80BAA300961E31 /* InfoViewController.swift */; };
 		88FFB8AC1B80D92100961E31 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FFB8AB1B80D92100961E31 /* MapViewController.swift */; };
 		88FFB8AE1B80F4CE00961E31 /* EventAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FFB8AD1B80F4CE00961E31 /* EventAnnotation.swift */; };
 /* End PBXBuildFile section */
@@ -71,7 +70,6 @@
 		88D126021B592DAE007DC224 /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		88D126031B592DAE007DC224 /* EventTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventTableViewCell.xib; sourceTree = "<group>"; };
 		88FFB8A81B7FB1CB00961E31 /* CE-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CE-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
-		88FFB8A91B80BAA300961E31 /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		88FFB8AB1B80D92100961E31 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = CE/MapViewController.swift; sourceTree = SOURCE_ROOT; };
 		88FFB8AD1B80F4CE00961E31 /* EventAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventAnnotation.swift; sourceTree = "<group>"; };
 		A85D98F18944DBEA3F99D34A /* libPods-CE.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CE.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,7 +127,6 @@
 				88D125C61B5924E2007DC224 /* EventDetailViewController.swift */,
 				88D126021B592DAE007DC224 /* EventTableViewCell.swift */,
 				88FFB8AB1B80D92100961E31 /* MapViewController.swift */,
-				88FFB8A91B80BAA300961E31 /* InfoViewController.swift */,
 				88FFB8AD1B80F4CE00961E31 /* EventAnnotation.swift */,
 				88D125C81B5924E2007DC224 /* Main.storyboard */,
 				88D126031B592DAE007DC224 /* EventTableViewCell.xib */,
@@ -358,7 +355,6 @@
 				88FFB8AC1B80D92100961E31 /* MapViewController.swift in Sources */,
 				88FFB8AE1B80F4CE00961E31 /* EventAnnotation.swift in Sources */,
 				88D125F51B5924FF007DC224 /* Links.m in Sources */,
-				88FFB8AA1B80BAA300961E31 /* InfoViewController.swift in Sources */,
 				88D125C31B5924E2007DC224 /* AppDelegate.swift in Sources */,
 				88D126041B592DAE007DC224 /* EventTableViewCell.swift in Sources */,
 				88D125F11B5924FF007DC224 /* EventApi.m in Sources */,
@@ -495,6 +491,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = CE/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "at.rags.$(PRODUCT_NAME:rfc1034identifier)";
@@ -512,6 +509,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = CE/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "at.rags.$(PRODUCT_NAME:rfc1034identifier)";
