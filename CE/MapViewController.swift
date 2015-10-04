@@ -131,11 +131,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     var anView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId)
     if anView == nil {
-      anView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+      anView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
       anView!.canShowCallout = true
-      anView!.image = UIImage(named: "marker")
       anView!.calloutOffset = CGPoint(x: -1.0, y: -3.0)
       anView!.rightCalloutAccessoryView = UIButton(type: UIButtonType.DetailDisclosure) as UIView
+      anView!.image = UIImage(named: "marker")!
     }
     else {
       //we are re-using a view, update its annotation reference...
