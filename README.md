@@ -10,6 +10,9 @@ I'm happy if you want to contribute to this app. Make your changes and send a pu
 # Links
 [App on Appstore](https://itunes.apple.com/us/app/ce-events-in-karnten/id1031693461?mt=8)
 
+# iOS Version
+iOS 8+
+
 # Screenshots
 
 ![](https://github.com/raphaelseher/CE-App/blob/master/Images/Screenshots/4.7%20Device%201.jpg)
