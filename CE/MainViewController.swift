@@ -16,6 +16,7 @@
 //51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 import UIKit
+import MBProgressHUD
 
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
@@ -75,7 +76,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
       
       print("Links: \(links.next), \(links.first), \(links.last)");
       
-      self.eventsToDisplay = self.checkForToday(events)
+      self.eventsToDisplay = events
       self.tableView.reloadData()
       self.page++;
       
@@ -100,6 +101,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     cell.eventCategorieLabel.text = event.categories.first?.name
     cell.eventTitleLabel.text = event.name;
+    cell.eventImageView.image = nil
     cell.eventImageView.setImageWithURL(NSURL(string: event.image.contentUrl))
     cell.eventLocationLabel.text = event.location.name
     
@@ -145,7 +147,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
       self.link = links
 
       self.isLoadingMore = false
-      self.eventsToDisplay += self.checkForToday(events)
+      self.eventsToDisplay += events
       self.tableView.reloadData()
       self.page++
     }

@@ -17,6 +17,7 @@
 
 import UIKit
 import CoreLocation
+import MBProgressHUD
 
 class SearchViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate, CLLocationManagerDelegate, UITableViewDelegate {
   
@@ -241,7 +242,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     return self.categories.count
   }
   
-  func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+  func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
     return self.categories[row].name
   }
   

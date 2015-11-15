@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B5E4FF53E70C9E478FBE43B /* libPods-CE.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A85D98F18944DBEA3F99D34A /* libPods-CE.a */; };
 		887959371B83B8990026E690 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 887959361B83B8990026E690 /* GoogleService-Info.plist */; };
 		8899016E1B5BD6A10051F2E7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8899016D1B5BD6A10051F2E7 /* MapKit.framework */; };
 		88C60EF01B652B5F009FD6FB /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C60EEF1B652B5F009FD6FB /* SearchViewController.swift */; };
@@ -25,6 +24,7 @@
 		88D126051B592DAE007DC224 /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88D126031B592DAE007DC224 /* EventTableViewCell.xib */; };
 		88FFB8AC1B80D92100961E31 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FFB8AB1B80D92100961E31 /* MapViewController.swift */; };
 		88FFB8AE1B80F4CE00961E31 /* EventAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FFB8AD1B80F4CE00961E31 /* EventAnnotation.swift */; };
+		A72E2AA3470F7826CF24D880 /* Pods_CE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08E2F3C598AEF66F4D4B527C /* Pods_CE.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		08E2F3C598AEF66F4D4B527C /* Pods_CE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71DF630451D2D1A2E93A50C0 /* Pods-CE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CE.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CE/Pods-CE.debug.xcconfig"; sourceTree = "<group>"; };
 		887959221B83B0EE0026E690 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		887959241B83B0F90026E690 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -69,10 +70,10 @@
 		88D125EF1B5924FF007DC224 /* Links.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Links.m; sourceTree = "<group>"; };
 		88D126021B592DAE007DC224 /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		88D126031B592DAE007DC224 /* EventTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventTableViewCell.xib; sourceTree = "<group>"; };
+		88EA53321BF8D03000F862EB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		88FFB8A81B7FB1CB00961E31 /* CE-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CE-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		88FFB8AB1B80D92100961E31 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = CE/MapViewController.swift; sourceTree = SOURCE_ROOT; };
 		88FFB8AD1B80F4CE00961E31 /* EventAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventAnnotation.swift; sourceTree = "<group>"; };
-		A85D98F18944DBEA3F99D34A /* libPods-CE.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CE.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2344FC4DA85DE71662862E8 /* libPods-CharintischEvent.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CharintischEvent.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED7367F8C902D0DF383E1BBA /* Pods-CE.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CE.release.xcconfig"; path = "Pods/Target Support Files/Pods-CE/Pods-CE.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,7 +84,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8899016E1B5BD6A10051F2E7 /* MapKit.framework in Frameworks */,
-				5B5E4FF53E70C9E478FBE43B /* libPods-CE.a in Frameworks */,
+				A72E2AA3470F7826CF24D880 /* Pods_CE.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +181,7 @@
 		A15E4D8A1F5A6647FFDACA31 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				88EA53321BF8D03000F862EB /* SystemConfiguration.framework */,
 				887959301B83B1220026E690 /* EventKitUI.framework */,
 				8879592E1B83B11C0026E690 /* EventKit.framework */,
 				8879592C1B83B1150026E690 /* CoreTelephony.framework */,
@@ -190,7 +192,7 @@
 				887959221B83B0EE0026E690 /* AdSupport.framework */,
 				8899016D1B5BD6A10051F2E7 /* MapKit.framework */,
 				B2344FC4DA85DE71662862E8 /* libPods-CharintischEvent.a */,
-				A85D98F18944DBEA3F99D34A /* libPods-CE.a */,
+				08E2F3C598AEF66F4D4B527C /* Pods_CE.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -216,6 +218,7 @@
 				88D125BA1B5924E2007DC224 /* Frameworks */,
 				88D125BB1B5924E2007DC224 /* Resources */,
 				44CDA5B3A07CF17CF423EDD8 /* Copy Pods Resources */,
+				98266FB1905ED36ADD0BD909 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -340,6 +343,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		98266FB1905ED36ADD0BD909 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CE/Pods-CE-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

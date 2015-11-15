@@ -17,14 +17,13 @@
 
 import UIKit
 import MapKit
-import GoogleMobileAds
+import MBProgressHUD
 
-class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, GADInterstitialDelegate  {
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate  {
   
   static let bannerAppId : String = "ca-app-pub-8688727410266855/4174175323"
   
   @IBOutlet weak var mapView: MKMapView!
-  @IBOutlet weak var bannerView: GADBannerView!
   
   let manager = CLLocationManager()
   var userLocation : CLLocation = CLLocation()
